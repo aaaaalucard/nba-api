@@ -1,0 +1,30 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+.forever
+
+# Coverage directory used by tools like istanbul
+coverage
+/reports/
+
+# Local config
+/config/local*
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Generated API HTML
+/docs/raml/**/*.html
+
+# Dependency directory
+node_modules
+
+._*
+.DS_Store
+.idea
+.settings

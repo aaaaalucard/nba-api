@@ -1,0 +1,9 @@
+{
+  "app":{
+    "port": 8888,
+    "hostname": "localhost"
+  },
+  "client_req_timeout": 5000,
+  "web_host": "http://stats.nba.com",
+  "current_season": "2015-2016"
+}

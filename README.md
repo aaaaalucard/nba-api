@@ -24,8 +24,7 @@ http://stats.nba.com/js/data/sportvu/2013/catchShootDataPost.json
 ### Speed
 
 ###Others
-
-pullup_address = "http://stats.nba.com/js/data/sportvu/pullUpShootData.js"
+pullup_address = "http://stats.nba.com/js/data/sportvu/pullUpShootData.js",
 drives_address = "http://stats.nba.com/js/data/sportvu/drivesData.js",
 defense_address="http://stats.nba.com/js/data/sportvu/defenseData.js",
 passing_address="http://stats.nba.com/js/data/sportvu/passingData.js",
