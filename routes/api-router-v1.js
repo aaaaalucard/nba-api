@@ -21,15 +21,16 @@ router.get('/data/:season/drives');
 //Passing
 router.get('/data/:season/passing');
 
-//Possessions
+//Touches AND Possessions
 router.get('/data/:season/possessions');
+
 //Pull-up Shooting
 router.get('/data/:season/pullupshooting');
 
 //Rebounding
 router.get('/data/:season/rebounding');
 
-//Efficiency
+//Shooting Efficiency
 router.get('/data/:season/efficiency');
 
 //Speed
