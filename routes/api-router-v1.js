@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
-
+var movements = require('../controllers/movements.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.json("Let's do this!");
 });
 
 //Movement Tracking Information
-router.get('/game/:game_id/play/:play_id');
+router.get('/game/:gameid/play/:playid', movements.findOne);
 
 //Catch&Shoot
 router.get('/data/:season/catchshoot');

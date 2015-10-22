@@ -1,11 +1,12 @@
+require('colors');
 var express = require('express');
 var path = require('path');
 var config = require('config');
-var logger = require('morgan');
+var logger = require('./utilities/logger');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/api-router-v1.js');
+var requestLogger = require('./middlewares/request-logger');
+var routes = require('./routes/api-router-v1');
 
 var app = express();
 
@@ -14,7 +15,7 @@ var app = express();
 // app.set('view engine', 'jade');
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(logger('dev'));
+app.use(requestLogger);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -35,8 +36,7 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
+    res.status(err.status || 500).json({
       message: err.message,
       error: err
     });
@@ -46,17 +46,16 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
+  res.status(err.status || 500).json({
     message: err.message,
     error: {}
   });
 });
 
 app.listen(config.get('app.port'), function () {
-  console.log('NodeClub listening on port', config.get('app.port'));
-  console.log('You can debug your app with http://' + config.get('app.hostname') + ':' + config.get('app.port'));
-  console.log('');
+  logger.log('NodeClub listening on port', config.get('app.port'));
+  logger.log('You can debug your app with http://' + config.get('app.hostname') + ':' + config.get('app.port'));
+  logger.log('');
 });
 
 
